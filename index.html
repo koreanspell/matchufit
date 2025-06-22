@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>맞춤핏 - 맞춤법 검사기</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 140px;
+      font-size: 16px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      resize: vertical;
+    }
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #0051cc;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      font-size: 16px;
+      white-space: pre-wrap;
+      text-align: center;
+    }
 
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>맞춤핏 - 맞춤법 검사기</h1>
+  <textarea id="text" placeholder="여기에 문장을 입력하세요"></textarea>
+  <button onclick="checkSpelling()">검사 결과 보기</button>
+  <div id="result"></div>
+</div>
+
+<script>
+function checkSpelling() {
+  const text = document.getElementById('text').value.trim();
+  if (!text) {
+    alert("검사할 문장을 입력하세요.");
+    return;
+  }
+
+  const messages = [
+    "맞춤법도 모르는 바보~",
+    "국어공부는 국어사전에서~",
+    "검사 결과따윈 알려주지 않아요~"
+  ];
+  const randomIndex = Math.floor(Math.random() * messages.length);
+  document.getElementById('result').textContent = messages[randomIndex];
+}
+</script>
+
+</body>
+</html>
