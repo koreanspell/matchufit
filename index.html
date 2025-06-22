@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>맞춤핏 - 맞춤법 검사기</title>
+  <style>
+    body { max-width: 600px; margin: 40px auto; font-family: Arial, sans-serif; }
+    textarea { width: 100%; height: 150px; font-size: 16px; }
+    button { padding: 10px 20px; margin-top: 10px; cursor: pointer; }
+    #result { margin-top: 20px; white-space: pre-wrap; background: #f0f0f0; padding: 10px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+
+<h1>맞춤핏 - 맞춤법 검사기</h1>
+<textarea id="text" placeholder="여기에 검사할 문장을 입력하세요"></textarea><br />
+<button onclick="checkSpelling()">검사 결과 보기</button>
+
+<div id="result"></div>
+
+<script>
+function checkSpelling() {
+  const text = document.getElementById('text').value;
+  if (!text.trim()) {
+    alert('검사할 문장을 입력하세요.');
+    return;
+  }
+
+  const funnyMessages = [
+    "맞춤법도 모르는 바보~",
+    "국어공부는 국어사전에서~",
+    "검사 결과따윈 알려주지 않아요~"
+  ];
+
+  const randomIndex = Math.floor(Math.random() * funnyMessages.length);
+  const result = funnyMessages[randomIndex];
+
+  document.getElementById('result').textContent = result;
+}
+</script>
+
+</body>
+</html>
